@@ -5,16 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Absensi extends Model
+class Post extends Model
 {
     use HasFactory;
-
-    protected $table = 'absensi';
-
+    
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = [
-        'user_id',
-        'tanggal_absensi',
-        'waktu_masuk',
-        'waktu_keluar',
+        'image',
+        'title',
+        'content',
     ];
 }

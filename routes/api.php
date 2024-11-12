@@ -1,8 +1,12 @@
 <?php
 
-use App\Http\Controllers\AbsensiController;
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
-Route::post('/absen-masuk', [AbsensiController::class, 'absenMasuk']);
-Route::post('/absen-keluar', [AbsensiController::class, 'absenKeluar']);
-Route::get('/absensi/{user_id}', [AbsensiController::class, 'getAbsensiByUser']);
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware(Authenticate::using('sanctum'));
 
+//posts
+Route::apiResource('/posts', App\Http\Controllers\Api\PostController::class);
